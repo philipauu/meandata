@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="employees">
 
 <head>
     <title>Demo</title>
-<link rel="icon" href="https://undertale.aminoapps.com/static/bower/emojify.js/images/emoji/fish.png">
+    <link rel="icon" href="https://undertale.aminoapps.com/static/bower/emojify.js/images/emoji/fish.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 
@@ -12,8 +12,57 @@
 
 </head>
 
-<body>
+<body ng-controller="emp_data">
     <h1>Demo</h1>
+    <h2>CREATE</h2>
+    <form>
+        <input type="text" placeholder="name" ng-model="input_name">
+        <input type="text" placeholder="email" ng-model="input_email">
+        <input type="text" placeholder="gender" ng-model="input_gender">
+        <input type="text" placeholder="avatar" ng-model="input_avatar">
+
+        <button class="btn btn-primary" ng-click="create()">create employee</button>
+    </form>
+
+    <h2>READ</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>_id</th>
+                <th>name</th>
+                <th>email</th>
+                <th>gender</th>
+                <th>avatar</th>
+                <th>UPDATE</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+
+        <tbody ng-repeat="employee in employees">
+            <tr>
+                <td>{{user._id}}</td>
+                <td>
+                    <input type="text" ng-model="employee.name">
+                </td>
+                <td>
+                    <input type="text" ng-model="employee.email">
+                </td>
+                <td>
+                    <input type="text" ng-model="employee.gender">
+                </td>
+                <td>
+                    <input type="text" ng-model="employee.avatar">
+                </td>
+                <td>
+                    <button class="btn btn-warning" ng-click="update(employee)">UPDATE</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" ng-click="delete(employee)">DELETE</button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
 
 </body>
 
