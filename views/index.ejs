@@ -14,6 +14,9 @@
 
 <body ng-controller="emp_data">
     <h1>Demo</h1>
+
+    <p>{{message}}</p>
+
     <h2>CREATE</h2>
     <form>
         <input type="text" placeholder="name" ng-model="input_name">
@@ -38,29 +41,37 @@
             </tr>
         </thead>
 
-        <tbody ng-repeat="employee in employees">
-            <tr>
-                <td>{{user._id}}</td>
-                <td>
-                    <input type="text" ng-model="employee.name">
-                </td>
-                <td>
-                    <input type="text" ng-model="employee.email">
-                </td>
-                <td>
-                    <input type="text" ng-model="employee.gender">
-                </td>
-                <td>
-                    <input type="text" ng-model="employee.avatar">
-                </td>
-                <td>
-                    <button class="btn btn-warning" ng-click="update(employee)">UPDATE</button>
-                </td>
-                <td>
-                    <button class="btn btn-danger" ng-click="delete(employee)">DELETE</button>
-                </td>
-            </tr>
-        </tbody>
+        <tr ng-class="{'male': employee.gender == Male, 'female': employee.gender == Female}">
+            <tbody ng-repeat="employee in employees">
+
+                <tr>
+                    <td>{{employee._id}}</td>
+                    <td>
+                        <input type="text" ng-model="employee.name">
+                    </td>
+                    <td>
+                        <input type="text" ng-model="employee.email">
+                    </td>
+                    <td>
+                        <input type="text" ng-model="employee.gender">
+                    </td>
+
+                    <td>
+                        <img src="{{employee.avatar}}" alt="">
+                    </td>
+
+                    <td>
+                        <input type="text" ng-model="employee.avatar">
+                    </td>
+                    
+                    <td>
+                        <button class="btn btn-warning" ng-click="update(employee)">UPDATE</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" ng-click="delete(employee)">DELETE</button>
+                    </td>
+                </tr>
+            </tbody>
 
     </table>
 
