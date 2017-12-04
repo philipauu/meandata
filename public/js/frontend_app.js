@@ -60,7 +60,7 @@ function do_data($scope, $http) {
     $scope.delete = function (employee) {
         console.log('deleting employee');
         console.log(employee);
-        $http.delete('/api/v2/delete' + employee._id)
+        $http.delete('/api/v4/delete' + employee._id)
             .then(function (result) {
                 console.log(result);
                 $scope.message = result.data.message;
